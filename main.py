@@ -128,19 +128,19 @@ message_label = ttk.Label(text="Файл с сообщением", font=("Arial"
 message_label.grid(row=0, column=0)
 
 message_entry = ttk.Entry(justify=CENTER)
-message_entry.grid(row=1, column=0)
+message_entry.grid(row=1, column=0, pady=10)
 
 key_label = ttk.Label(text="Файл с ключом", font=("Arial", 14))
 key_label.grid(row=2, column=0)
 
 key_entry = ttk.Entry(justify=CENTER)
-key_entry.grid(row=3, column=0)
+key_entry.grid(row=3, column=0, pady=10)
 
 init_state_label = ttk.Label(text="Файл с нач.сост. скремблера", font=("Arial", 14))
 init_state_label.grid(row=4, column=0)
 
 init_state_entry = ttk.Entry(justify=CENTER)
-init_state_entry.grid(row=5, column=0)
+init_state_entry.grid(row=5, column=0, pady=10)
 
 scrambler_label = ttk.Label(
     text="Генерация ключа", font=("Arial", 14))
@@ -150,7 +150,7 @@ ScramblerOption = StringVar(value="First")
 
 RandomKeyOption = ttk.Radiobutton(
     text="Случайный ключ", value="Random", variable=ScramblerOption)
-RandomKeyOption.grid(row=7, column=0)
+RandomKeyOption.grid(row=7, column=0, pady=10)
 
 FirstScramblerOption = ttk.Radiobutton(
     text="Скремблер 1", value="First", variable=ScramblerOption)
@@ -158,7 +158,7 @@ FirstScramblerOption.grid(row=8, column=0)
 
 SecondScramblerOption = ttk.Radiobutton(
     text="Скремблер 2", value="Second", variable=ScramblerOption)
-SecondScramblerOption.grid(row=9, column=0)
+SecondScramblerOption.grid(row=9, column=0, pady=10)
 
 mode_label = ttk.Label(text="Режим работы", font=("Arial", 14))
 mode_label.grid(row=10, column=0)
@@ -167,14 +167,14 @@ ModeOption = StringVar(value="Encode")
 
 EncodeOption = ttk.Radiobutton(
     text="Зашифровать", value="Encode", variable=ModeOption)
-EncodeOption.grid(row=11, column=0)
+EncodeOption.grid(row=11, column=0, pady=10)
 
 DecodeOption = ttk.Radiobutton(
     text="Дешифровать", value="Decode", variable=ModeOption)
 DecodeOption.grid(row=12, column=0)
 
 btn = ttk.Button(text="Пуск", command=click_button)
-btn.grid(row=13, column=0)
+btn.grid(row=13, column=0, pady=10)
 
 key_edit_label = ttk.Label(text="Ключ", font=("Arial", 14))
 key_edit_label.grid(row=0, column=1)
