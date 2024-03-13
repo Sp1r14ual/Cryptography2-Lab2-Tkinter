@@ -16,17 +16,10 @@ def lfsr2():
                 shift_register >> 1) ^ 1) & 0x01
     shift_register = (shift_register >> 1) | (feedback_bit << 7)
     return shift_register & 0x01
-
-def generate_init_state(length):
-    result = str()
-    for i in range(length):
-        result += str(randint(0, 1))
-    return int(result, base=2)
-
-def get_gamma(length, scrambler_choice):
+def get_gamma(length, init_state, scrambler_choice):
     global shift_register
     result = str()
-    shift_register = generate_init_state(length)
+    shift_register = init_state
     if scrambler_choice == "First":
         for i in range(length):
             result += str(lfsr1())

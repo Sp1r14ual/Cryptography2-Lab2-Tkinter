@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import showerror, showwarning, showinfo
 from scramblers import get_gamma
-from xor import xor
+from xor import xor, random_key
 
 def click_button():
     message_filename = message_entry.get()
@@ -36,6 +36,8 @@ def click_button():
     if ModeOption.get() == "Encode":
         if ScramblerOption.get() == "First":
             key = get_gamma(len(message), "First")
+        elif ScramblerOption.get() == "Random":
+            key = random_key(len(message))
         else:
             key = get_gamma(len(message), "Second")
     else:
@@ -74,10 +76,14 @@ key_entry = ttk.Entry(justify=CENTER)
 key_entry.pack()
 
 scrambler_label = ttk.Label(
-    text="Скремблер", font=("Arial", 14))
+    text="Генерация ключа", font=("Arial", 14))
 scrambler_label.pack(pady=10)
 
 ScramblerOption = StringVar(value="First")
+
+RandomKeyOption = ttk.Radiobutton(
+    text="Случайный ключ", value="Random", variable=ScramblerOption)
+RandomKeyOption.pack(ipady=5)
 
 FirstScramblerOption = ttk.Radiobutton(
     text="Скремблер 1", value="First", variable=ScramblerOption)
