@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter.messagebox import showerror, showwarning, showinfo
 from scramblers import get_gamma
 from xor import xor, random_key
+from analysis_test import run_analytics
 
 def click_button():
     message_filename = message_entry.get()
@@ -71,6 +72,8 @@ def click_button():
 
 
     showinfo("Выполнено", "Результат работы программы записаны в файлы key.txt и output.txt")
+
+    run_analytics(ScramblerOption.get())
 
     return
 
