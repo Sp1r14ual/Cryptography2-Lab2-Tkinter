@@ -1,5 +1,3 @@
-from random import randint
-
 shift_register = None
 def lfsr1():
     ''' f(x)=x^8 + x^7 + x^6 + x^3 + x^2 + 1 '''

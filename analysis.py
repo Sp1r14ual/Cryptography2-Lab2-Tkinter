@@ -1,4 +1,5 @@
 # import bitarray
+from scipy.stats import chi2_contingency, chisquare
 
 import random
 # from sympy import nextprime
@@ -301,3 +302,15 @@ def brent():
 # print(correlation())
 balance()
 cyclicity()
+
+analytics = open("analytics.txt", "w")
+
+top = f"{'Distance':^12} {'pvalue':^12} {'Uniform?':^8}" + "\n"
+
+dist, pvalue = chisquare(list(map(int, list(open("key.txt", "r").read()))))
+uni = 'YES' if pvalue > 0.05 else 'NO'
+
+result = f"{dist:12.3f} {pvalue:12.8f} {uni:^8}"
+
+analytics.writelines([top, result])
+analytics.close()
